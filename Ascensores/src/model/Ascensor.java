@@ -1,7 +1,9 @@
 package model;
 
-public class Ascensor<E> implements IAscensor<E> {
+import java.util.Stack;
 
+public class Ascensor<E> implements IAscensor<E> {
+private Stack<E> pila;
 	@Override
 	public void subir() {
 		// TODO Auto-generated method stub
@@ -15,15 +17,13 @@ public class Ascensor<E> implements IAscensor<E> {
 	}
 
 	@Override
-	public E salirAscensor() {
-		// TODO Auto-generated method stub
-		return null;
+	public void salirAscensor() {
+		pila.pop();
 	}
 
 	@Override
-	public E entrarAscensor() {
-		// TODO Auto-generated method stub
-		return null;
+	public void entrarAscensor(E nuevoObjeto) {
+		pila.push(nuevoObjeto);
 	}
 
 }
