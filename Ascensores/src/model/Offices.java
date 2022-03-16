@@ -2,12 +2,15 @@
 package model;
 
 public class Offices {
-    int numero;
-
+    private int numero;
+    
+    //Constructor
     public Offices(int numero) {
         this.numero = numero;
     }
-
+    
+    //Getters and Setters
+    
     public int getNumero() {
         return numero;
     }
