@@ -14,8 +14,8 @@ public class Reception {
     	person= new ArrayList<Person>();
     }
     
-    public void createBuilding(String buildName, int numFloors, int numoffices) {
-    	Edificio temp=new Edificio(buildName, numFloors, numoffices);
+    public void createBuilding(String buildName, int numFloors, int numOffices) {
+    	Edificio temp=new Edificio(buildName, numFloors, numOffices);
     	building.add(temp);
     	
     }

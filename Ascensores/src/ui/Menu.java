@@ -70,12 +70,13 @@ public class Menu {
 			int numberOfOfficesPerFloor = Integer.parseInt(parts[3]);
 			recepcion.createBuilding(IDBuilding, numberOfFloorPerBuilding, numberOfOfficesPerFloor);
 			for (int j = 0; j < numberOfPeopleBuilding; j++) {
-				System.out.println("Name and destiny of the person. Ex 'Jorge 4' ");
+				System.out.println("Name and destiny of the person. Example: 'Jorge 4' ");
 				line = br.readLine();
 				String[] parts2 = line.split(" ");
 				String name = parts2[0];
 				int destiny = Integer.parseInt(parts2[1]);
 				recepcion.createPerson(name, destiny);
+				
 			}
 		}
 	}
