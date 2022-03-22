@@ -6,7 +6,7 @@ public class Main {
 
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		Menu menu = new Menu();
-		System.out.println("          --- BIENVENIDO ---");
+		System.out.println("          --- WELCOME ---");
 		menu.startProgram();
 	}
 }
