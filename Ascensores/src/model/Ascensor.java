@@ -7,7 +7,6 @@ private Stack<E> pila;
 	@Override
 	public void subir() {
 		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
