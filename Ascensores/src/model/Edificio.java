@@ -1,15 +1,17 @@
 
 package model;
 
-public class Edifice {
+public class Edificio {
     
     private String name;
+    private int office;
     private int floors;
     
     //Constructor
-    public Edifice(String name, int floors) {
+    public Edificio(String name, int floors, int office) {
         this.name = name;
         this.floors = floors;
+        this.office=office;
     }
     
     //Getters and Setters
@@ -29,6 +31,14 @@ public class Edifice {
     public void setFloors(int floors) {
         this.floors = floors;
     }
+
+	public int getOffice() {
+		return office;
+	}
+
+	public void setOffice(int office) {
+		this.office = office;
+	}
     
     
     

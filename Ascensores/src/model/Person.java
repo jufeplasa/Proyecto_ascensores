@@ -4,12 +4,11 @@ package model;
 public class Person {
     private String name;
     private String location;
-    private String destination;
+    private int destination;
     
     //Constructor
-    public Person(String name, String location, String destination) {
+    public Person(String name,  int destination) {
         this.name = name;
-        this.location = location;
         this.destination = destination;
     }
 
@@ -31,11 +30,11 @@ public class Person {
         this.location = location;
     }
 
-    public String getDestination() {
+    public int getDestination() {
         return destination;
     }
 
-    public void setDestination(String destination) {
+    public void setDestination(int destination) {
         this.destination = destination;
     }
 

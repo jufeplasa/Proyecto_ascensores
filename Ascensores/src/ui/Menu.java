@@ -3,11 +3,14 @@ package ui;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import model.*;
 
 public class Menu {
 	
+	private static Reception recepcion;
+	
 	public Menu() {
-		
+		recepcion= new Reception();
 	}
 
 	public void showMenu() {
@@ -44,7 +47,7 @@ public class Menu {
 	
 	public void startProgram() throws NumberFormatException, IOException {
 		int option = 0;
-		int exit = 3;
+		int exit = 2;
 		do {
 			BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
 			showMenu();
@@ -65,6 +68,15 @@ public class Menu {
 			int numberOfPeopleBuilding = Integer.parseInt(parts[1]);
 			int numberOfFloorPerBuilding = Integer.parseInt(parts[2]);
 			int numberOfOfficesPerFloor = Integer.parseInt(parts[3]);
+			recepcion.createBuilding(IDBuilding, numberOfFloorPerBuilding, numberOfOfficesPerFloor);
+			for (int j = 0; j < numberOfPeopleBuilding; j++) {
+				System.out.println("Name and destiny of the person. Ex 'Jorge 4' ");
+				line = br.readLine();
+				String[] parts2 = line.split(" ");
+				String name = parts2[0];
+				int destiny = Integer.parseInt(parts2[1]);
+				recepcion.createPerson(name, destiny);
+			}
 		}
 	}
 
