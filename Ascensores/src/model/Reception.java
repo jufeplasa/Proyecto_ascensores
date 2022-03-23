@@ -8,10 +8,12 @@ public class Reception {
     
 	private List<Edificio> building;
 	private List<Person> person;
+	private IAscensor<Person> transporte;
 	
     public Reception() {
     	building= new ArrayList<Edificio>();
     	person= new ArrayList<Person>();
+    	transporte=new Ascensor<Person>();
     }
     
     public void createBuilding(String buildName, int numFloors, int numOffices) {
@@ -20,9 +22,9 @@ public class Reception {
     	
     }
     
-    public void createPerson(String perName, int destiny) {
-    	Person temp=new Person(perName, destiny);
+    public void createPerson(String perName, int start,int destiny) {
+    	Person temp=new Person(perName, start,destiny);
     	person.add(temp);
     }
-    
+	
 }
