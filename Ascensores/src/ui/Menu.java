@@ -76,10 +76,8 @@ public class Menu {
 				String name = parts2[0];
 				int origen = Integer.parseInt(parts2[1]);
 				int destiny = Integer.parseInt(parts2[2]);
-				recepcion.createPerson(name, origen, destiny);
-				
+				recepcion.createPerson(name, origen, destiny, i);
 			}
 		}
 	}
-
 }

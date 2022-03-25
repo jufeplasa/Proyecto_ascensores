@@ -7,12 +7,11 @@ import java.util.List;
 public class Reception {
     
 	private List<Edificio> building;
-	private List<Person> person;
+	
 	private IAscensor<Person> transporte;
 	
     public Reception() {
     	building= new ArrayList<Edificio>();
-    	person= new ArrayList<Person>();
     	transporte=new Ascensor<Person>();
     }
     
@@ -22,9 +21,19 @@ public class Reception {
     	
     }
     
-    public void createPerson(String perName, int start,int destiny) {
+    
+    public void createPerson(String perName, int start,int destiny, int index) {
     	Person temp=new Person(perName, start,destiny);
-    	person.add(temp);
+    	building.get(index).getListPersons().add(temp);
     }
 	
+    
+    public void genericMethod() {
+    	for(int i=0;i<building.size();i++) {
+    		for(int j=0;j<building.get(i).getListPersons().size();j++) {
+    			
+    			//transporte.entrarAscensor();
+    		}
+    	}
+    }
 }

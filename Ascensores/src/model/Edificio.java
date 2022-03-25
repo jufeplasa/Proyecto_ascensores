@@ -10,16 +10,38 @@ public class Edificio {
     private String name;
     private int office;
     private int floors;
-	List<HashMap<Integer,Person>> offices;
+	private List<HashMap<Integer,Person>> offices;
+	private List<Person> person;
+	
     //Constructor
     public Edificio(String name, int floors, int office) {
         this.name = name;
         this.floors = floors;
         this.office=office;
         offices =new ArrayList<HashMap<Integer,Person>>();
+        person = new ArrayList<Person>();
     }
     
-    public void createOffices() {
+    
+    public int searchFloorOffice(int IDOffice, int currentFloor) {
+    	int floor = currentFloor;
+   	 	if(offices.get(floor).containsKey(IDOffice)) {
+   			return floor+1;
+   		}else{
+   			return searchFloorOffice(IDOffice,floor+1);
+   		}
+   	 	
+    }
+   
+    public List<HashMap<Integer, Person>> getOffices() {
+		return offices;
+	}
+
+	public List<Person> getListPersons() {
+		return person;
+	}
+
+	public void createOffices() {
     	int indexOffice=office*floors;
     	for(int i=0;i<floors;i++) {
     		offices.add(new HashMap<Integer,Person>());
