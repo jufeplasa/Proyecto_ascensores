@@ -3,14 +3,14 @@ package model;
 
 public class Person {
     private String name;
-    private int origin;
+    private int currentFloor;
     private int destination;
     
     //Constructor
-    public Person(String name, int origin, int destination) {
+    public Person(String name, int currentFloor, int destination) {
         this.name = name;
         this.destination = destination;
-        this.origin = origin;
+        this.currentFloor = currentFloor;
     }
 
     public String getName() {
@@ -23,12 +23,12 @@ public class Person {
         this.name = name;
     }
 
-    public int getOrigin() {
-        return origin;
+    public int getcurrentFloor() {
+        return currentFloor;
     }
 
-    public void setOrigin(int location) {
-        this.origin = location;
+    public void setcurrentFloor(int location) {
+        this.currentFloor = location;
     }
 
     public int getDestination() {

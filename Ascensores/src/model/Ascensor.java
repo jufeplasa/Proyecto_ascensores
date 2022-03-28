@@ -8,13 +8,25 @@ private int currentFloor;
 private boolean isComingDown;
 	@Override
 	public void subir() {
-		// TODO Auto-generated method stub
+		setComingDown(false);
+		currentFloor++;
 	}
 
 	@Override
 	public void bajar() {
-		// TODO Auto-generated method stub
+		setComingDown(true);
+		currentFloor--;
 		
+	}
+	
+	@Override
+	public Stack<E> getPila(){
+		return pila;
+	}
+	
+	@Override
+	public boolean isEmpty() {
+		return pila.isEmpty();
 	}
 
 	@Override
@@ -27,22 +39,35 @@ private boolean isComingDown;
 		pila.push(nuevoObjeto);
 	}
 
+	@Override
 	public boolean isComingDown() {
 		return isComingDown;
 	}
 
+	@Override
 	public void setComingDown(boolean isComingDown) {
 		this.isComingDown = isComingDown;
 	}
 
+	@Override
 	public int getCurrentFloor() {
 		return currentFloor;
 	}
 
+	@Override
 	public void setCurrentFloor(int currentFloor) {
 		this.currentFloor = currentFloor;
 	}
 	
+	@Override
+	public boolean isInElevator(E objeto) {
+		if(pila.contains(objeto)) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
 	
 	
 }
