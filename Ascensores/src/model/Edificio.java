@@ -32,6 +32,12 @@ public class Edificio {
    		}
    	 	
     }
+    
+    public boolean isInOffice(Person p, int floor) {
+    	int index=floor-1;
+    	return offices.get(index).containsValue(p);
+    	
+    }
    
     public List<HashMap<Integer, Person>> getOffices() {
 		return offices;

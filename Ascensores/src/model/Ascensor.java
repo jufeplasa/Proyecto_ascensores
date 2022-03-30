@@ -36,7 +36,9 @@ private boolean isComingDown;
 
 	@Override
 	public void entrarAscensor(E nuevoObjeto) {
-		pila.push(nuevoObjeto);
+		if(!isInElevator(nuevoObjeto)) {
+			pila.push(nuevoObjeto);
+		}
 	}
 
 	@Override
