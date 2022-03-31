@@ -25,18 +25,18 @@ public class Reception {
 		Person temp=new Person(perName, start,destiny);
 		building.get(index).getListPersons().add(temp);
 	}
-
-	/**  public void searchPersonperfloor(int floor, int index) {
-    	for (int i=0; i<building.get(index).getListPersons().size();i++) {
-    		Person aux=building.get(index).getListPersons().get(i);
-    		if(aux.getcurrentFloor()==floor) {
-    			if(!transporte.isInElevator(aux)) {
-        			transporte.entrarAscensor(aux);
-    			}
-    		}
-    	}
-    }**/
-
+	
+	public void firstCallElevator(int index) {
+		Person aux =building.get(index).getListPersons().get(0);
+		transporte.setCurrentFloor(aux.getcurrentFloor());
+		recorrido(index);
+	}
+	
+	public void recorrido(int index) {
+		addInElevator(index, transporte.getCurrentFloor()) ;
+		exitInElevator(index, transporte.getCurrentFloor()) ;
+	}
+	
 
 	public void addInElevator(int index, int floor) {
 		for(int i=0;i<building.get(index).getListPersons().size();i++) {
@@ -46,12 +46,8 @@ public class Reception {
 			}
 		}
 	}
-
-	public void proceso(int index) {
-		Person top=transporte.getPila().lastElement();
-		transporte.setCurrentFloor(top.getcurrentFloor());
-		while(!transporte.isEmpty()) {
-
-		}
+	
+	public void exitInElevator(int index, int floor) {
+		
 	}
 }

@@ -5,12 +5,14 @@ public class Person {
     private String name;
     private int currentFloor;
     private int destination;
+    private String status;
     
     //Constructor
     public Person(String name, int currentFloor, int destination) {
         this.name = name;
         this.destination = destination;
         this.currentFloor = currentFloor;
+        status=null;
     }
 
     public String getName() {
@@ -38,6 +40,17 @@ public class Person {
     public void setDestination(int destination) {
         this.destination = destination;
     }
+    
+    public String  getStatus() {
+    	return status;
+    }
+    
+    public void setStatusWithOffice(int office) {
+    	status=name+" se mueve a la oficina "+office;
+    }
 
+    public void setStatusWithOutOffice() {
+    	status=name+" se quedo sin oficina";
+    }
     
 }
