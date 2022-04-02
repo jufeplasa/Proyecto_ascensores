@@ -4,6 +4,7 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Stack;
 
 public class Edificio {
     
@@ -11,7 +12,7 @@ public class Edificio {
     private int office;
     private int floors;
 	private List<HashMap<Integer,Person>> offices;
-	private List<Person> person;
+	private Stack<Person> person;
 	
     //Constructor
     public Edificio(String name, int floors, int office) {
@@ -19,14 +20,14 @@ public class Edificio {
         this.floors = floors;
         this.office=office;
         offices =new ArrayList<HashMap<Integer,Person>>();
-        person = new ArrayList<Person>();
+        person = new Stack<Person>();
     }
     
     
     public int searchFloorOffice(int IDOffice, int currentFloor) {
     	int floor = currentFloor;
    	 	if(offices.get(floor).containsKey(IDOffice)) {
-   			return floor+1;
+   			return floor;
    		}else{
    			return searchFloorOffice(IDOffice,floor+1);
    		}
@@ -43,7 +44,7 @@ public class Edificio {
 		return offices;
 	}
 
-	public List<Person> getListPersons() {
+	public Stack<Person> getQueuePersons() {
 		return person;
 	}
 

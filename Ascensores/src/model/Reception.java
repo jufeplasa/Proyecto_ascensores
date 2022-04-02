@@ -24,9 +24,10 @@ public class Reception {
 
 	public void createPerson(String perName, int start,int destiny, int index) {
 		Person temp=new Person(perName, start,destiny);
-		building.get(index).getListPersons().add(temp);
+		building.get(index).getQueuePersons().add(0, temp);
 	}
 	
+/**	
 	public void firstCallElevator(int index) {
 		Person aux =building.get(index).getListPersons().get(0);
 		transporte.setCurrentFloor(aux.getcurrentFloor());
@@ -51,4 +52,5 @@ public class Reception {
 	public void exitInElevator(int index, int floor) {
 		
 	}
+	**/
 }
