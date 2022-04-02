@@ -3,27 +3,32 @@ package model;
 import java.util.Stack;
 
 public class Ascensor<E> implements IAscensor<E> {
-private Stack<E> pila;
-private int currentFloor;
-private boolean isComingDown;
-	@Override
-	public void subir() {
-		setComingDown(false);
-		currentFloor++;
+	private Stack<E> pila;
+	private int currentFloor;
+	private boolean isComingDown;
+
+	public Ascensor(){
+		pila = new Stack<E>();
 	}
 
 	@Override
-	public void bajar() {
-		setComingDown(true);
-		currentFloor--;
-		
+	public void subir(int destinyFloor) {
+		setComingDown(false);
+		setCurrentFloor(destinyFloor);
 	}
-	
+
+	@Override
+	public void bajar(int destinyFloor) {
+		setComingDown(true);
+		setCurrentFloor(destinyFloor);
+
+	}
+
 	@Override
 	public Stack<E> getPila(){
 		return pila;
 	}
-	
+
 	@Override
 	public boolean isEmpty() {
 		return pila.isEmpty();
@@ -60,7 +65,7 @@ private boolean isComingDown;
 	public void setCurrentFloor(int currentFloor) {
 		this.currentFloor = currentFloor;
 	}
-	
+
 	@Override
 	public boolean isInElevator(E objeto) {
 		if(pila.contains(objeto)) {
@@ -70,6 +75,6 @@ private boolean isComingDown;
 			return false;
 		}
 	}
-	
-	
+
+
 }

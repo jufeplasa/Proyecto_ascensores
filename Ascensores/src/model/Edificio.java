@@ -9,18 +9,20 @@ import java.util.Stack;
 public class Edificio {
     
     private String name;
-    private int office;
+    private int officesPerFloor;
     private int floors;
 	private List<HashMap<Integer,Person>> offices;
-	private Stack<Person> person;
+	private Stack<Person> personQueue;
+	private List <Person> personsList;
 	
     //Constructor
-    public Edificio(String name, int floors, int office) {
+    public Edificio(String name, int floors, int officesPerFloor) {
         this.name = name;
         this.floors = floors;
-        this.office=office;
+        this.officesPerFloor=officesPerFloor;
         offices =new ArrayList<HashMap<Integer,Person>>();
-        person = new Stack<Person>();
+        personQueue = new Stack<Person>();
+        personsList = new ArrayList<Person>();
     }
     
     
@@ -29,7 +31,7 @@ public class Edificio {
    	 	if(offices.get(floor).containsKey(IDOffice)) {
    			return floor;
    		}else{
-   			return searchFloorOffice(IDOffice,floor+1);
+   			return searchFloorOffice(IDOffice, floor+1);
    		}
    	 	
     }
@@ -45,14 +47,14 @@ public class Edificio {
 	}
 
 	public Stack<Person> getQueuePersons() {
-		return person;
+		return personQueue;
 	}
 
 	public void createOffices() {
-    	int indexOffice=office*floors;
+    	int indexOffice=officesPerFloor*floors;
     	for(int i=0;i<floors;i++) {
     		offices.add(new HashMap<Integer,Person>());
-    		for(int j= 0; j<office;j++) {
+    		for(int j= 0; j<officesPerFloor;j++) {
     			offices.get(i).put(indexOffice, null);
     			indexOffice--;
     		}
@@ -77,14 +79,22 @@ public class Edificio {
         this.floors = floors;
     }
 
-	public int getOffice() {
-		return office;
+	public int getOfficesPerFloor() {
+		return officesPerFloor;
 	}
 
-	public void setOffice(int office) {
-		this.office = office;
+	public void setOfficesPerFloor(int office) {
+		this.officesPerFloor = office;
 	}
-    
-    
+
+
+	public List<Person> getPersonsList() {
+		return personsList;
+	}
+
+
+	public void setPersonsList(List<Person> personsList) {
+		this.personsList = personsList;
+	}
     
 }

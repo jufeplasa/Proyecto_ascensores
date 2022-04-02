@@ -52,5 +52,12 @@ public class Person {
     public void setStatusWithOutOffice() {
     	status=name+" se quedo sin oficina";
     }
+
+	@Override
+	public String toString() {
+		return "Person [name=" + name + ", currentFloor=" + currentFloor + ", destination=" + destination + ", status="
+				+ status + "]";
+	}
+    
     
 }

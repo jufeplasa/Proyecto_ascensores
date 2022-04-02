@@ -3,8 +3,8 @@ package model;
 import java.util.Stack;
 
 public interface IAscensor<T> {
-	public void subir();
-	public void bajar();
+	public void subir(int destinyFloor);
+	public void bajar(int destinyFloor);
 	public boolean isEmpty();
 	public void salirAscensor();
 	public void entrarAscensor(T nuevoObjeto);

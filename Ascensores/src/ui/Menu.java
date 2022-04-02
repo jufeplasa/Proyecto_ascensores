@@ -14,7 +14,7 @@ public class Menu {
 	}
 
 	public void showMenu() {
-		System.out.println("[1] Start the program"+
+		System.out.println("[1] Start the program\n"+
 		                   "[2] Exit the program.\n");
 	}
 	
@@ -36,7 +36,7 @@ public class Menu {
 			                   "Line 2: ID of each building, number of people in the building, number of floors in the building, and number of offices per floor. Example: A 5 3 2 \n"+
 			                   "Next lines: Write the name of each person in the building and the floor where they are located. Hit enter each time you finish typing a person's name and floor. Example: Luis 3 [enter]");
 			readData(br);
-			
+			runCode();
 			break;
 				
 		case 2:
@@ -70,14 +70,25 @@ public class Menu {
 			int numberOfOfficesPerFloor = Integer.parseInt(parts[3]);
 			recepcion.createBuilding(IDBuilding, numberOfFloorPerBuilding, numberOfOfficesPerFloor);
 			for (int j = 0; j < numberOfPeopleBuilding; j++) {
-				System.out.println("Name and destiny of the person. Example: 'Jorge 1 4' ");
+				System.out.println("Please, write the name of the person " +(j+1)+ ", the number of the floor where he is located, and the number of the office where he is going to go. Example: 'Jorge 1 4 8' ");
 				line = br.readLine();
 				String[] parts2 = line.split(" ");
 				String name = parts2[0];
-				int origen = Integer.parseInt(parts2[1]);
+				int origin = Integer.parseInt(parts2[1]);
 				int destiny = Integer.parseInt(parts2[2]);
-				recepcion.createPerson(name, origen, destiny, i);
-			}
+				recepcion.createPerson(name, origin, destiny, i);
+				}
+		}
+		for(int i=0;i<2;i++) {
+			System.out.println(recepcion.getBuildings().get(0).getQueuePersons().get(i).toString());
+		}
+		
+	}
+	
+	public void runCode() {
+		for(int i=0;i<recepcion.getBuildings().size();i++) {
+			recepcion.pickUpPerson(i);
+			System.out.println(recepcion.showElevator());
 		}
 	}
 }
