@@ -9,6 +9,7 @@ public class Ascensor<E> implements IAscensor<E> {
 
 	public Ascensor(){
 		pila = new Stack<E>();
+		currentFloor=0;
 	}
 
 	@Override

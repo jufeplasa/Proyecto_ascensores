@@ -55,8 +55,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [name=" + name + ", currentFloor=" + currentFloor + ", destination=" + destination + ", status="
-				+ status + "]";
+		return name;//"[name=" + name + ", currentFloor=" + currentFloor + ", destination=" + destination + ", status="
+				//+ status + "]";
 	}
     
     

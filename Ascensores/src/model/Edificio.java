@@ -4,7 +4,6 @@ package model;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Stack;
 
 public class Edificio {
     
@@ -12,7 +11,6 @@ public class Edificio {
     private int officesPerFloor;
     private int floors;
 	private List<HashMap<Integer,Person>> offices;
-	private Stack<Person> personQueue;
 	private List <Person> personsList;
 	
     //Constructor
@@ -21,7 +19,6 @@ public class Edificio {
         this.floors = floors;
         this.officesPerFloor=officesPerFloor;
         offices =new ArrayList<HashMap<Integer,Person>>();
-        personQueue = new Stack<Person>();
         personsList = new ArrayList<Person>();
     }
     
@@ -45,11 +42,6 @@ public class Edificio {
     public List<HashMap<Integer, Person>> getOffices() {
 		return offices;
 	}
-
-	public Stack<Person> getQueuePersons() {
-		return personQueue;
-	}
-
 	public void createOffices() {
     	int indexOffice=officesPerFloor*floors;
     	for(int i=0;i<floors;i++) {
