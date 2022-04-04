@@ -58,6 +58,4 @@ public class Person {
 		return name;//"[name=" + name + ", currentFloor=" + currentFloor + ", destination=" + destination + ", status="
 				//+ status + "]";
 	}
-    
-    
 }

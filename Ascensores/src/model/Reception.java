@@ -11,16 +11,16 @@ public class Reception {
 	private IAscensor<Person> transporte;
 
 	private Stack<Person> personQueue = new Stack<Person>();
-
+	
+	private Edificio edificio;
 	public Reception() {
 		building= new ArrayList<Edificio>();
 		transporte=new Ascensor<Person>();
 	}
 
 	public void createBuilding(String buildName, int numFloors, int numOffices) {
-		Edificio temp=new Edificio(buildName, numFloors, numOffices);
-		building.add(temp);
-
+		edificio = new Edificio(buildName, numFloors, numOffices);
+		building.add(edificio);
 	}
 
 	public void createPerson(String perName, int start, int destiny, int buildName) {
@@ -47,9 +47,9 @@ public class Reception {
 		return false;
 	}
 	public void pickUpPerson(int buildName) {
-		
 		if(transporte.getPila().size() < building.get(buildName).getPersonsList().size()) {
 			Person aux = personQueue.lastElement();
+			
 			if(building.get(buildName).getPersonsList().size() == personQueue.size() || (building.get(buildName).getPersonsList().size()-1) == personQueue.size()){
 				if(transporte.getCurrentFloor() < aux.getcurrentFloor()) {
 					transporte.subir(aux.getcurrentFloor());
@@ -87,6 +87,24 @@ public class Reception {
 		}
 	}
 
+	public void getOutPerson(int buildName) {
+		if (transporte.getPila().size() < building.get(buildName).getPersonsList().size()) {
+			Person aux = transporte.getPila().firstElement();
+
+			if (building.get(buildName).getPersonsList().size() == transporte.getPila().size()
+					|| (building.get(buildName).getPersonsList().size() - 1) == transporte.getPila().size()) {
+				if (transporte.getCurrentFloor() < edificio.searchFloorOffice(aux.getDestination(),
+						aux.getcurrentFloor())) {
+					transporte.subir(edificio.searchFloorOffice(aux.getDestination(), aux.getcurrentFloor()));
+				} else {
+					transporte.bajar(edificio.searchFloorOffice(aux.getDestination(), aux.getcurrentFloor()));
+				}
+				transporte.salirAscensor();
+				getOutPerson(buildName);
+			}
+		}
+	}
+	
 	public String showElevator() {
 		return transporte.getPila().toString();
 	}
