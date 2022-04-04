@@ -35,8 +35,8 @@ public class Menu {
 			System.out.println("Line 1: Number of buildings, example: 5\n"+
 					"Line 2: ID of each building, number of people in the building, number of floors in the building, and number of offices per floor. Example: A 5 3 2 \n"+
 					"Next lines: Write the name of each person in the building and the floor where they are located. Hit enter each time you finish typing a person's name and floor. Example: Luis 3 [enter]");
-			readData(br);
-			runCode();
+			readData(br); 
+			showResultsPerBuilding();
 			break;
 
 		case 2:
@@ -81,8 +81,10 @@ public class Menu {
 			
 		}
 	}
-
-	public void runCode() {
-		recepcion.formarCola();
+	
+	public void showResultsPerBuilding() {
+		for(int i = 0; i <recepcion.getBuildings().size();i++) {
+			System.out.println(recepcion.formarCola(i));
+		}
 	}
 }

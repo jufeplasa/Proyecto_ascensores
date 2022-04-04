@@ -45,8 +45,8 @@ public class Person {
     	return status;
     }
     
-    public void setStatusWithOffice(int office) {
-    	status=name+" se mueve a la oficina "+office;
+    public void setStatusWithOffice() {
+    	status=name+" se mueve a la oficina : "+destination;
     }
 
     public void setStatusWithOutOffice() {
@@ -55,7 +55,6 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return name;//"[name=" + name + ", currentFloor=" + currentFloor + ", destination=" + destination + ", status="
-				//+ status + "]";
+		return name;
 	}
 }
